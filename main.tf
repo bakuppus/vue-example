@@ -16,7 +16,7 @@ variable "github_username" {
 
 variable "github_token" {
   type = "string"
-  default = "a006273160e259fa3c533a121ed5f33ad6ef25b0"
+  default = "a006xxxxxxx3ad6ef25b0"
 }
 
 variable "github_repo" {
