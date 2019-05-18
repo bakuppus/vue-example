@@ -8,8 +8,9 @@ phases:
      - echo "pre_build step"
  build:
    commands:
+     - npm install
      - npm run build
  post_build:
    commands:
      - echo "post_build step"
-     - aws s3 sync --delete . "s3://baladigitalcloud-vue-example"
+     - aws s3 sync --delete dist/. "s3://baladigitalcloud-vue-example"
