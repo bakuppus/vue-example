@@ -16,7 +16,7 @@ variable "github_username" {
 
 variable "github_token" {
   type = "string"
-  default = "a006273160e259fa3c533a121ed5f33ad6ef25b0"
+  default = "39c610928d30aa3f5ad705ee7aa06e987ca840fc"
 }
 
 variable "github_repo" {
@@ -26,6 +26,19 @@ variable "github_repo" {
 
 provider "aws" {
   region     = "${var.aws_region}"
+}
+
+#Static website
+resource "aws_s3_bucket" "baladigitalcloud-static-site1-vu" {
+  bucket = "baladigitalcloud-static-site1-vu"
+  acl    = "public-read"
+  policy = "${file("policy.json")}"
+
+  website {
+    index_document = "index.html"
+    error_document = "error.html"
+
+  }
 }
 
 # CodePipeline resources
